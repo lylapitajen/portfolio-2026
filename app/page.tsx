@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { experiences, projects } from "./data";
-import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import TestimonialsCarouselSection from "@/components/TestimonialsCarouselSection";
 import ExperienceListItem from "@/components/ExperienceListItem";
 import ProjectListItem from "@/components/ProjectListItem";
 
@@ -36,12 +36,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="flex flex-col gap-8 py-10">
-        <h2 className="text-sm uppercase tracking-wide text-neutral-500 pb-2 border-b">
-          Testimonials
-        </h2>
-        <TestimonialsCarousel />
-      </section>
+      <TestimonialsCarouselSection />
     </main>
   );
 }
