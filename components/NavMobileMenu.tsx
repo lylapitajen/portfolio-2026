@@ -24,8 +24,8 @@ export default function NavMobileMenu() {
         <DropdownMenuContent className="w-64" align="end">
           <DropdownMenuItem>
             <PenTool className="text-neutral-400 mr-1" />
-            <Link href="/projects" className="text-lg font-medium">
-              Projects
+            <Link href="/#case-studies" className="text-lg font-medium">
+              Case Studies
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
@@ -36,9 +36,9 @@ export default function NavMobileMenu() {
           </DropdownMenuItem>
           <DropdownMenuItem>
             <TextAlignStart className="text-neutral-400 mr-1" />
-            <Link href="/blogs" className="text-lg font-medium">
+            {/* <Link href="/blogs" className="text-lg font-medium">
               Blogs
-            </Link>
+            </Link> */}
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
