@@ -4,12 +4,8 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "./carousel";
+} from "./shadcn/carousel";
 import { testimonials } from "@/app/data";
-import { Quote } from "lucide-react";
-import Image from "next/image";
-import test from "node:test";
-
 export default function TestimonialsCarousel() {
   return (
     <Carousel

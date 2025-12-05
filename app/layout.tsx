@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import Nav from "../components/ui/Nav";
-import Footer from "@/components/ui/Footer";
+import Nav from "../components/Nav";
+import Footer from "@/components/Footer";
 
 const DMSans = DM_Sans({
   variable: "--font-dm-sans",

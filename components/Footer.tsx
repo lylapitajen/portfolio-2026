@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./shadcn/tooltip";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-between py-6 mt-16 border-t text-neutral-500 text-sm">
+    <footer className="flex justify-between py-6 mt-24 border-t text-neutral-500 text-sm">
       <div className="flex gap-2 items-center">
-        Designed with
+        Designed on
         <Tooltip>
           <TooltipTrigger asChild>
             <Image
@@ -18,7 +18,7 @@ export default function Footer() {
           <TooltipContent>Figma</TooltipContent>
         </Tooltip>
         and built with
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <Tooltip>
             <TooltipTrigger asChild>
               <Image

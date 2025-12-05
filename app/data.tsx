@@ -18,22 +18,22 @@ const experiences = [
 const projects = [
   {
     title: "JAAQ Design System",
-    description:
+    shortSummary:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     title: "Propstore Back Office",
-    description:
+    shortSummary:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     title: "YunoJuno Marketing Website",
-    description:
+    shortSummary:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     title: "Vorboss Locations Mobile App",
-    description:
+    shortSummary:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ];

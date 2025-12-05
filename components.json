@@ -12,7 +12,8 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@/components",
+    "components": "@/components/shadcn",
+    "shadcn": "@/components/shadcn",
     "utils": "@/lib/utils",
     "ui": "@/components/ui",
     "lib": "@/lib",
