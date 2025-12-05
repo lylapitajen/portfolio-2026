@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${DMSans.variable} antialiased`}>
-        <div className="max-w-[7xl] mx-auto px-12">
+        <div className="max-w-[7xl] mx-auto px-6 md:px-12">
           <Nav />
           {children}
           <Footer />
