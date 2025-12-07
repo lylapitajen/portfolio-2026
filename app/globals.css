@@ -3,6 +3,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-content-default: var(--color-neutral-800);
+  --color-content-muted: var(--color-neutral-600);
+  --color-content-hint: var(--color-neutral-500);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

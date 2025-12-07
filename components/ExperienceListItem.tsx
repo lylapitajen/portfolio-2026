@@ -10,7 +10,7 @@ export default function ExperienceListItem({
       <h3 className="text-xl font-medium w-full max-w-20 max-[420px]:max-w-full md:max-w-40">
         {company}
       </h3>
-      <p className="text-neutral-600">{description}</p>
+      <p className="text-content-muted">{description}</p>
     </div>
   );
 }

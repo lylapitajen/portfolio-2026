@@ -21,7 +21,7 @@ export default function TestimonialsCarouselSection() {
     <>
       <section className="flex flex-col gap-8 py-10">
         <div className="flex justify-between items-center pb-2 border-b">
-          <h2 className="text-sm uppercase tracking-wide text-neutral-500">
+          <h2 className="text-sm uppercase tracking-wide text-content-hint">
             Testimonials
           </h2>
           <div className="flex gap-2 items-center">
@@ -46,7 +46,7 @@ export default function TestimonialsCarouselSection() {
                     <div className="h-10 w-10 rounded-full bg-neutral-200"></div>
                     <div>
                       <p className="font-medium">{testimonial.author}</p>
-                      <p className="text-neutral-600">
+                      <p className="text-content-muted">
                         {testimonial.authorJobTitle},{" "}
                         {testimonial.clientCompany}
                       </p>
