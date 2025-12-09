@@ -23,9 +23,9 @@ export default function CaseStudyListItem({
         <Image
           src={`/client-logos/${clientLogo}`}
           alt={`${title} logo`}
-          height={120}
-          width={140}
-          // className="h-20"
+          height={200}
+          width={200}
+          className="h-10!"
         />
       </div>
       <div className="flex flex-col gap-1">

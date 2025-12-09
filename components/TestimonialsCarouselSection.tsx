@@ -38,7 +38,7 @@ export default function TestimonialsCarouselSection() {
           <div className="embla__container flex mr-4">
             {testimonials.map((testimonial, i) => (
               <div
-                className="embla__slide flex-none basis-full md:basis-1/2 lg:basis-1/3 mr-4"
+                className="embla__slide flex-none basis-full md:basis-1/2 lg:basis-2/5 mr-4"
                 key={i}
               >
                 <div className="flex flex-col justify-between gap-10 bg-neutral-100 p-6 rounded-md h-full">
