@@ -34,12 +34,12 @@ export default function NavMobileMenu() {
               About
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          {/* <DropdownMenuItem>
             <TextAlignStart className="text-neutral-400 mr-1" />
-            {/* <Link href="/blogs" className="text-lg font-medium">
+            <Link href="/blogs" className="text-lg font-medium">
               Blogs
-            </Link> */}
-          </DropdownMenuItem>
+            </Link>
+          </DropdownMenuItem> */}
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <Button className="w-full">

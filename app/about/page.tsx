@@ -4,12 +4,12 @@ import Image from "next/image";
 export default function AboutPage() {
   return (
     <main className="flex flex-col gap-20 min-h-screen w-full">
-      <section className="flex gap-20 h-full justify-center pt-20">
+      <section className="flex flex-col gap-10 min-[996px]:flex-row lg:gap-12 xl:gap-20 h-full justify-center pt-20">
         <div className="flex-1 flex flex-col">
           <p className="text-sm uppercase tracking-wide text-content-hint">
             About me
           </p>
-          <h1 className="text-3xl font-medium text-content-default">
+          <h1 className="text-2xl md:text-3xl font-medium text-content-default">
             I'm a Product Designer who loves to code! I have experience leading
             end-to-end design projects and building design systems for B2B and
             SaaS startups and scale-ups. When I'm not working, I'm probably{" "}
