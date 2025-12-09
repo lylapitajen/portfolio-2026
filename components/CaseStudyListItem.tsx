@@ -1,22 +1,42 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type Props = {
   title: string;
   shortSummary: string;
+  homeImageBgColor: string;
+  clientLogo: string;
 };
 
-export default function CaseStudyListItem({ title, shortSummary }: Props) {
+export default function CaseStudyListItem({
+  title,
+  shortSummary,
+  homeImageBgColor,
+  clientLogo,
+}: Props) {
   return (
-    <Link href="/">
-      <div className="flex flex-col gap-4">
-        <div className="bg-neutral-100 h-[400px] w-full rounded-lg"></div>
-        <div className="flex flex-col gap-1">
-          <h3 className="text-xl font-medium">{title}</h3>
-          <p className="text-content-muted w-full xl:max-w-[70%] leading-snug">
-            {shortSummary}
-          </p>
-        </div>
+    <div className="flex flex-col gap-4">
+      <div
+        className={`flex items-center justify-center h-[400px] w-full rounded-md`}
+        style={{ backgroundColor: homeImageBgColor }}
+      >
+        <Image
+          src={`/client-logos/${clientLogo}`}
+          alt={`${title} logo`}
+          height={120}
+          width={140}
+          // className="h-20"
+        />
       </div>
-    </Link>
+      <div className="flex flex-col gap-1">
+        <h3 className="text-xl font-medium">
+          {title}{" "}
+          <span className="uppercase text-sm text-content-muted py-1 px-2 bg-neutral-100 rounded-sm tracking-wide">
+            Coming soon
+          </span>
+        </h3>
+        <p className="text-content-muted w-full leading-snug">{shortSummary}</p>
+      </div>
+    </div>
   );
 }

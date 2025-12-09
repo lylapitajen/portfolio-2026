@@ -4,6 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { testimonials } from "@/app/data";
 import { Button } from "./shadcn/button";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import Image from "next/image";
 
 export default function TestimonialsCarouselSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -43,7 +44,18 @@ export default function TestimonialsCarouselSection() {
                 <div className="flex flex-col justify-between gap-10 bg-neutral-100 p-6 rounded-md h-full">
                   <p className="text-lg font-medium">{testimonial.text}</p>
                   <div className="flex gap-2 items-center">
-                    <div className="h-10 w-10 rounded-full bg-neutral-200"></div>
+                    <div
+                      className="h-11 w-11 flex items-center justify-center rounded-full"
+                      style={{ backgroundColor: testimonial.homeAvatarBgColor }}
+                    >
+                      <Image
+                        src={`/client-logos/${testimonial.clientLogo}`}
+                        height={24}
+                        width={24}
+                        alt={`${testimonial.clientCompany} logo`}
+                        className="rounded-full"
+                      />
+                    </div>
                     <div>
                       <p className="font-medium">{testimonial.author}</p>
                       <p className="text-content-muted">
