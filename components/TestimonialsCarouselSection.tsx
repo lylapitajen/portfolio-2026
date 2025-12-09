@@ -43,7 +43,7 @@ export default function TestimonialsCarouselSection() {
               >
                 <div className="flex flex-col justify-between gap-10 bg-neutral-100 p-6 rounded-md h-full">
                   <p className="text-lg font-medium">{testimonial.text}</p>
-                  <div className="flex gap-2 items-center">
+                  <div className="flex max-[420px]:flex-col gap-2 items-start">
                     <div
                       className="h-11 w-11 flex items-center justify-center rounded-full"
                       style={{ backgroundColor: testimonial.homeAvatarBgColor }}
