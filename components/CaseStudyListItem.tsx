@@ -31,7 +31,7 @@ export default function CaseStudyListItem({
       <div className="flex flex-col gap-1 items-start">
         <div className="flex gap-2 flex-col-reverse items-start sm:flex-row sm:items-center">
           <h3 className="text-xl font-medium">{title}</h3>
-          <span className="uppercase text-sm text-content-muted py-1 px-2 bg-neutral-100 rounded-sm tracking-wide">
+          <span className="uppercase text-xs text-content-muted py-1 px-2 bg-neutral-100 rounded-sm tracking-wide">
             Coming soon
           </span>
         </div>

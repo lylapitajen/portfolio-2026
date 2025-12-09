@@ -7,10 +7,10 @@ import ExperienceListItem from "@/components/ExperienceListItem";
 export default function Home() {
   return (
     <main className="flex flex-col gap-20 min-h-screen w-full">
-      <section className="h-[60vh]">
+      <section className="md:h-[60vh]">
         <div className="h-full flex flex-col max-w-4xl pt-20">
           <p className="text-content-hint">Hi, I'm Lyla!</p>
-          <h1 className="text-5xl max-[400px]:text-[3rem] sm:text-6xl md:text-7xl  font-medium text-content-default">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl  font-medium text-content-default">
             Product Designer & UX Engineer working with SaaS companies to design
             better digital experiences.
           </h1>
