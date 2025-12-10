@@ -19,28 +19,28 @@ const projects = [
   {
     title: "JAAQ Design System",
     shortSummary:
-      "Delivering a scalable, tokenised, and multi-brand design system that supports JAAQ’s B2B and B2C products and marketing websites.",
+      "Delivered a scalable, tokenised, and multi-brand design system that supports JAAQ’s B2B and B2C products and marketing websites.",
     clientLogo: "jaaq-logo.svg",
     homeImageBgColor: "#000",
   },
   {
     title: "Propstore Back Office",
     shortSummary:
-      "Streamlining the design sytsem for Propstore’s internal system and designing product features that support business-critical workflows.",
+      "Streamlined the design system for Propstore’s internal system and designed product features that support business-critical workflows.",
     clientLogo: "propstore-logo.svg",
     homeImageBgColor: "#2D2E42",
   },
   {
     title: "YunoJuno Marketing Website",
     shortSummary:
-      "Delivering a strategic redesign of YunoJuno's marketing website to better communicate their product offering and drive sign-ups.",
+      "Delivered a strategic redesign of YunoJuno's marketing website to better communicate their product offering and drive sign-ups.",
     clientLogo: "yunojuno-logo.svg",
     homeImageBgColor: "#202153",
   },
   {
     title: "Vorboss Locations Mobile App",
     shortSummary:
-      "Designing a location-based application that helps sales teams target high-opportunity buildings in London and capture key business data.",
+      "Designed a location-based application that helped sales teams target high-opportunity buildings in London and capture key business data.",
     clientLogo: "vorboss-logo.svg",
     homeImageBgColor: "#0e4145",
   },

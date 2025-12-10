@@ -3,6 +3,7 @@ import { experiences, projects } from "./data";
 import TestimonialsCarouselSection from "@/components/TestimonialsCarouselSection";
 import CaseStudyListItem from "@/components/CaseStudyListItem";
 import ExperienceListItem from "@/components/ExperienceListItem";
+import Link from "next/link";
 
 export default function Home() {
   return (
