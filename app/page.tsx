@@ -3,7 +3,9 @@ import { experiences, projects } from "./data";
 import TestimonialsCarouselSection from "@/components/TestimonialsCarouselSection";
 import CaseStudyListItem from "@/components/CaseStudyListItem";
 import ExperienceListItem from "@/components/ExperienceListItem";
-import Link from "next/link";
+import { getAllCaseStudies } from "@/lib/api/caseStudies";
+
+const caseStudies = await getAllCaseStudies();
 
 export default function Home() {
   return (
@@ -36,8 +38,13 @@ export default function Home() {
           Case Studies
         </h2>
         <div className="grid min-[992px]:grid-cols-2 gap-12">
-          {projects.map((project, i) => (
-            <CaseStudyListItem {...project} key={i} />
+          {caseStudies.map(({ id, title, shortSummary, client }) => (
+            <CaseStudyListItem
+              key={id}
+              title={title}
+              shortSummary={shortSummary}
+              client={client}
+            />
           ))}
         </div>
       </section>

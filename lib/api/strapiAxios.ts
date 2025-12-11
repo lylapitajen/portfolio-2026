@@ -1,0 +1,17 @@
+import axios from "axios";
+// export default function strapiAxios() {
+//   axios.create({
+//     baseURL: process.env.NEXT_PUBLIC_STRAPI_API_URL,
+//     timeout: 10000,
+//   });
+// }
+
+const strapiAxios = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api`,
+  timeout: 1000,
+  headers: {
+    Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+  },
+});
+
+export default strapiAxios;

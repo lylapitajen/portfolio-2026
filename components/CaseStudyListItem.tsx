@@ -1,27 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
-
-type Props = {
-  title: string;
-  shortSummary: string;
-  homeImageBgColor: string;
-  clientLogo: string;
-};
+import { type CaseStudy } from "@/lib/api/caseStudies";
 
 export default function CaseStudyListItem({
   title,
   shortSummary,
-  homeImageBgColor,
-  clientLogo,
-}: Props) {
+  client,
+}: Pick<CaseStudy, "title" | "shortSummary" | "client">) {
+  console.log("client logo url", client.logo);
   return (
     <div className="flex flex-col gap-4">
       <div
         className={`flex items-center justify-center h-[400px] w-full rounded-md`}
-        style={{ backgroundColor: homeImageBgColor }}
+        style={{ backgroundColor: client.brandColor }}
       >
         <Image
-          src={`/client-logos/${clientLogo}`}
+          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${client.logo.url}`}
           alt={`${title} logo`}
           height={200}
           width={200}
