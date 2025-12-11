@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { Button } from "./shadcn/button";
 import Link from "next/link";
-import NavMobileMenu from "./NavMobileMenu";
 import { useState } from "react";
 import { PenTool, User } from "lucide-react";
 
