@@ -4,10 +4,16 @@ import TestimonialsCarouselSection from "@/components/TestimonialsCarouselSectio
 import CaseStudyListItem from "@/components/CaseStudyListItem";
 import ExperienceListItem from "@/components/ExperienceListItem";
 import { getAllCaseStudies } from "@/lib/api/caseStudies";
+import { getAllTestimonials } from "@/lib/api/testimonials";
 
-const caseStudies = await getAllCaseStudies();
+export default async function Home() {
+  // Fetch data for case studies and testimonials at the same time for efficiency
+  const [caseStudies, testimonials] = await Promise.all([
+    getAllCaseStudies(),
+    getAllTestimonials(),
+  ]);
+  console.log("Fetched testimonials:", testimonials[0].client.squareLogo.url);
 
-export default function Home() {
   return (
     <main className="flex flex-col gap-20 min-h-screen w-full">
       <section className="md:h-[60vh]">
@@ -48,7 +54,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <TestimonialsCarouselSection />
+      <TestimonialsCarouselSection testimonials={testimonials} />
     </main>
   );
 }

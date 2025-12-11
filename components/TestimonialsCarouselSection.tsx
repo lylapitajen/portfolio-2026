@@ -1,12 +1,16 @@
 "use client";
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { testimonials } from "@/app/data";
 import { Button } from "./shadcn/button";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import Image from "next/image";
+import { type Testimonial } from "@/lib/api/testimonials";
 
-export default function TestimonialsCarouselSection() {
+type Props = {
+  testimonials: Testimonial[];
+};
+
+export default function TestimonialsCarouselSection({ testimonials }: Props) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: true,
@@ -42,25 +46,24 @@ export default function TestimonialsCarouselSection() {
                 key={i}
               >
                 <div className="flex flex-col justify-between gap-10 bg-neutral-100 p-6 rounded-md h-full">
-                  <p className="text-lg font-medium">{testimonial.text}</p>
+                  <p className="text-lg font-medium">{testimonial.content}</p>
                   <div className="flex max-[420px]:flex-col gap-2 items-start">
                     <div
                       className="h-11 w-11 flex items-center justify-center rounded-full"
-                      style={{ backgroundColor: testimonial.homeAvatarBgColor }}
+                      style={{ backgroundColor: testimonial.client.brandColor }}
                     >
                       <Image
-                        src={`/client-logos/${testimonial.clientLogo}`}
+                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${testimonial.client.squareLogo.url}`}
                         height={24}
                         width={24}
-                        alt={`${testimonial.clientCompany} logo`}
+                        alt={`${testimonial.client.name} logo`}
                         className="rounded-full"
                       />
                     </div>
                     <div>
                       <p className="font-medium">{testimonial.author}</p>
                       <p className="text-content-muted">
-                        {testimonial.authorJobTitle},{" "}
-                        {testimonial.clientCompany}
+                        {testimonial.authorJobTitle}, {testimonial.client.name}
                       </p>
                     </div>
                   </div>

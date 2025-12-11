@@ -7,7 +7,6 @@ export default function CaseStudyListItem({
   shortSummary,
   client,
 }: Pick<CaseStudy, "title" | "shortSummary" | "client">) {
-  console.log("client logo url", client.logo);
   return (
     <div className="flex flex-col gap-4">
       <div
