@@ -53,7 +53,7 @@ export default function TestimonialsCarouselSection({ testimonials }: Props) {
                       style={{ backgroundColor: testimonial.client.brandColor }}
                     >
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${testimonial.client.squareLogo.url}`}
+                        src={testimonial.client.squareLogo.url}
                         height={24}
                         width={24}
                         alt={`${testimonial.client.name} logo`}

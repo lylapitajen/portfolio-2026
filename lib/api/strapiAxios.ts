@@ -8,9 +8,8 @@ import axios from "axios";
 
 const strapiAxios = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api`,
-  timeout: 1000,
   headers: {
-    Authorization: `Bearer ${process.env.STRAPI_API_KEY}`,
+    Authorization: `Bearer ${process.env.PROD_STRAPI_API_KEY}`,
   },
 });
 

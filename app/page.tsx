@@ -12,7 +12,6 @@ export default async function Home() {
     getAllCaseStudies(),
     getAllTestimonials(),
   ]);
-  console.log("Fetched testimonials:", testimonials[0].client.squareLogo.url);
 
   return (
     <main className="flex flex-col gap-20 min-h-screen w-full">
@@ -44,12 +43,13 @@ export default async function Home() {
           Case Studies
         </h2>
         <div className="grid min-[992px]:grid-cols-2 gap-12">
-          {caseStudies.map(({ id, title, shortSummary, client }) => (
+          {caseStudies.map(({ id, title, shortSummary, client, slug }) => (
             <CaseStudyListItem
               key={id}
               title={title}
               shortSummary={shortSummary}
               client={client}
+              slug={slug}
             />
           ))}
         </div>
