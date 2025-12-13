@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { experiences, projects } from "./data";
+import { experiences, projects } from "../data";
 import TestimonialsCarouselSection from "@/components/TestimonialsCarouselSection";
 import CaseStudyListItem from "@/components/CaseStudyListItem";
 import ExperienceListItem from "@/components/ExperienceListItem";
@@ -8,19 +8,15 @@ import { getAllTestimonials } from "@/lib/api/testimonials";
 
 export default async function Home() {
   // Fetch data for case studies and testimonials at the same time for efficiency
-  const [caseStudies, testimonials] = await Promise.all([
-    getAllCaseStudies(),
-    getAllTestimonials(),
-  ]);
+  const [caseStudies, testimonials] = await Promise.all([getAllCaseStudies(), getAllTestimonials()]);
 
   return (
-    <main className="flex flex-col gap-20 min-h-screen w-full">
+    <main className="screen-max-width-wrapper flex flex-col gap-20 min-h-screen w-full">
       <section className="md:h-[60vh]">
         <div className="h-full flex flex-col max-w-4xl pt-20">
           <p className="text-content-hint">Hi, I'm Lyla!</p>
           <h1 className="text-4xl sm:text-5xl md:text-7xl  font-medium text-content-default">
-            Product Designer & UX Engineer working with SaaS companies to design
-            better digital experiences.
+            Product Designer & UX Engineer working with SaaS companies to design better digital experiences.
           </h1>
           <div className="flex gap-2 items-center pt-4 text-content-hint">
             <div className="w-2 h-2 rounded-full bg-green-600"></div>
@@ -29,9 +25,7 @@ export default async function Home() {
         </div>
       </section>
       <section className="flex flex-col gap-8">
-        <h2 className="text-sm uppercase tracking-wide text-content-hint pb-2 border-b">
-          Experience
-        </h2>
+        <h2 className="text-sm uppercase tracking-wide text-content-hint pb-2 border-b">Experience</h2>
         <div className="flex flex-col gap-8 max-w-4xl ml-auto">
           {experiences.map((experience, i) => (
             <ExperienceListItem {...experience} key={i} />
@@ -39,18 +33,10 @@ export default async function Home() {
         </div>
       </section>
       <section id="case-studies" className="flex flex-col gap-8 py-10">
-        <h2 className="text-sm uppercase tracking-wide text-content-hint pb-2 border-b">
-          Case Studies
-        </h2>
+        <h2 className="text-sm uppercase tracking-wide text-content-hint pb-2 border-b">Case Studies</h2>
         <div className="grid min-[992px]:grid-cols-2 gap-12">
           {caseStudies.map(({ id, title, shortSummary, client, slug }) => (
-            <CaseStudyListItem
-              key={id}
-              title={title}
-              shortSummary={shortSummary}
-              client={client}
-              slug={slug}
-            />
+            <CaseStudyListItem key={id} title={title} shortSummary={shortSummary} client={client} slug={slug} />
           ))}
         </div>
       </section>
