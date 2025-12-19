@@ -1,7 +1,6 @@
 import { getOneCaseStudy, getAllCaseStudies } from "@/lib/api/caseStudies";
 import Image from "next/image";
-import { notFound } from "next/navigation";
-
+import Markdown from "react-markdown";
 import Layout from "@/components/Layout";
 
 export async function generateStaticParams() {
@@ -14,8 +13,8 @@ export async function generateStaticParams() {
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  console.log("slug", slug);
-  const { title, content, longSummary, client } = await getOneCaseStudy(slug);
+  const { title, content, longSummary, client, resultsMedia } = await getOneCaseStudy(slug);
+
   return (
     <Layout navTheme="dark" backgroundColor={client.brandColor}>
       <main className="flex flex-col gap-20 min-h-screen w-full">
@@ -35,7 +34,26 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </div>
         </section>
         <section className="w-full bg-background">
-          <div className="screen-max-width-wrapper text-content-default pt-12">{content}</div>
+          <div className="screen-max-width-wrapper pt-12">
+            <div className="rich-text max-w-4xl text-xl text-content-muted">
+              <Markdown>{content}</Markdown>
+            </div>
+            {resultsMedia && (
+              <div className="w-full flex flex-col gap-4 mt-12">
+                {resultsMedia.map((media) => (
+                  <Image
+                    key={media.url}
+                    src={media.url}
+                    alt={media.alternativeText}
+                    className="w-full h-auto rounded-md"
+                    layout="responsive"
+                    width={1280}
+                    height={720}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </section>
       </main>
     </Layout>

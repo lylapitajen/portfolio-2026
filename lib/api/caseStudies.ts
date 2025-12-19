@@ -7,6 +7,10 @@ export type CaseStudy = {
   shortSummary: string;
   longSummary: string;
   content: string;
+  resultsMedia?: Array<{
+    url: string;
+    alternativeText: string;
+  }>;
   client: {
     brandColor: string;
     name: string;
@@ -44,6 +48,7 @@ export const getOneCaseStudy = async (slug: string): Promise<CaseStudy> => {
           slug: slug,
         },
         populate: {
+          resultsMedia: true,
           client: {
             populate: {
               logo: true,

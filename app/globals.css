@@ -127,6 +127,22 @@
   }
 }
 
+@layer components {
+  .rich-text h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-content-default);
+  }
+  .rich-text li {
+    list-style-type: disc;
+    margin-bottom: var(--spacing);
+    list-style-position: inside;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
