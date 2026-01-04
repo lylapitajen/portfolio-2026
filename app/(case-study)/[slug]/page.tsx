@@ -46,7 +46,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                     src={media.url}
                     alt={media.alternativeText}
                     className="w-full h-auto rounded-md"
-                    layout="responsive"
                     width={1280}
                     height={720}
                   />

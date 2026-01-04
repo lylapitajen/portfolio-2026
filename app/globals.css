@@ -141,6 +141,14 @@
     margin-bottom: var(--spacing);
     list-style-position: inside;
   }
+  .rich-text p {
+    margin-bottom: calc(var(--spacing) * 3) /* 0.75rem = 12px */;
+  }
+  .rich-text img {
+    margin-top: calc(var(--spacing) * 8) /* 2rem = 32px */;
+    margin-bottom: calc(var(--spacing) * 8) /* 2rem = 32px */;
+    border-radius: var(--radius-md);
+  }
 }
 
 @layer base {

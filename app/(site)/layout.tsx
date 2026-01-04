@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Lyla Pitajen's UX and dev portfolio",
 };
 
-export default async function DefaultLayout({
+export default function DefaultLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
