@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { type CaseStudy } from "@/lib/api/caseStudies";
+import { strapiImageUrl } from "@/lib/utils";
 
 export default function CaseStudyListItem({
   title,
@@ -16,7 +17,7 @@ export default function CaseStudyListItem({
           style={{ backgroundColor: client.brandColor }}
         >
           <Image
-            src={client.logo.url}
+            src={strapiImageUrl({ url: client.logo.url })}
             alt={`${title} logo`}
             height={200}
             width={200}
@@ -30,9 +31,7 @@ export default function CaseStudyListItem({
               Coming soon
             </span>
           </div>
-          <p className="text-content-muted w-full leading-snug">
-            {shortSummary}
-          </p>
+          <p className="text-content-muted w-full leading-snug">{shortSummary}</p>
         </div>
       </div>
     </Link>

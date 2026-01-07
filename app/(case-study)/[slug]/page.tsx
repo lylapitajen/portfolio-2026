@@ -2,6 +2,7 @@ import { getOneCaseStudy, getAllCaseStudies } from "@/lib/api/caseStudies";
 import Image from "next/image";
 import Markdown from "react-markdown";
 import Layout from "@/components/Layout";
+import { strapiImageUrl } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const caseStudies = await getAllCaseStudies();
@@ -22,7 +23,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <div className="screen-max-width-wrapper">
             <div className="flex flex-col gap-2 items-start max-w-3xl">
               <Image
-                src={client.logo.url}
+                src={strapiImageUrl({ url: client.logo.url })}
                 height={200}
                 width={200}
                 alt={`${client.name} logo`}
@@ -43,7 +44,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 {resultsMedia.map((media) => (
                   <Image
                     key={media.url}
-                    src={media.url}
+                    src={strapiImageUrl({ url: media.url })}
                     alt={media.alternativeText}
                     className="w-full h-auto rounded-md"
                     width={1280}
