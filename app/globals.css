@@ -128,26 +128,40 @@
 }
 
 @layer components {
-  .rich-text h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    color: var(--color-content-default);
+  .rich-text {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul {
+      @apply max-w-3xl mx-auto;
+    }
+    h2 {
+      @apply text-2xl font-semibold mt-12 mb-4 text-content-default;
+    }
+    h3 {
+      @apply text-xl font-semibold mt-6 mb-2 text-content-default;
+    }
+    li {
+      @apply list-disc mb-1;
+    }
+    p {
+      @apply mb-6;
+    }
+
+    p:has(img) {
+      @apply max-w-full mt-16 mb-30;
+    }
+
+    img {
+      @apply rounded-md mb-4;
+    }
   }
-  .rich-text li {
-    list-style-type: disc;
-    margin-bottom: var(--spacing);
-    list-style-position: inside;
-  }
-  .rich-text p {
-    margin-bottom: calc(var(--spacing) * 3) /* 0.75rem = 12px */;
-  }
-  .rich-text img {
-    margin-top: calc(var(--spacing) * 8) /* 2rem = 32px */;
-    margin-bottom: calc(var(--spacing) * 8) /* 2rem = 32px */;
-    border-radius: var(--radius-md);
+  code {
+    @apply bg-neutral-100 p-1 rounded-xs text-sm text-blue-800;
   }
 }
 
@@ -159,3 +173,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* @theme {
+  --color-fg-primary: var(--color-white);
+  --color-fg-secondary: var(--color-neutral-300);
+  --color-fg-tertiary: var(--color-neutral-400);
+  --color-fg-positive: var(--color-green-600);
+  --color-fg-alert: var(--color-orange-600);
+  --color-fg-negative: var(--color-red-500);
+}
+
+[data-surface="light"] {
+  --color-fg-primary: var(--color-neutral-950);
+  --color-fg-secondary: var(--color-neutral-700);
+  --color-fg-tertiary: var(--color-neutral-500);
+  --color-fg-positive: var(--color-green-700);
+  --color-fg-alert: var(--color-orange-700);
+  --color-fg-negative: var(--color-red-700);
+} */

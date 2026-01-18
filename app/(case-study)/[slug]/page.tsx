@@ -36,7 +36,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </section>
         <section className="w-full bg-background">
           <div className="screen-max-width-wrapper pt-12">
-            <div className="rich-text max-w-4xl text-xl text-content-muted">
+            <div className="rich-text text-lg text-content-muted">
               <Markdown>{content}</Markdown>
             </div>
             {resultsMedia && (
