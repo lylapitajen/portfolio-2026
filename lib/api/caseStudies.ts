@@ -17,6 +17,13 @@ export type CaseStudy = {
     logo: {
       url: string;
     };
+    agency?: {
+      name: string;
+      logo: {
+        url: string;
+      };
+      website: string;
+    };
   };
 };
 
@@ -52,6 +59,11 @@ export const getOneCaseStudy = async (slug: string): Promise<CaseStudy> => {
           client: {
             populate: {
               logo: true,
+              agency: {
+                populate: {
+                  logo: true,
+                },
+              },
             },
           },
         },
