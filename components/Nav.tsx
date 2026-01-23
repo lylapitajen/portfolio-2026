@@ -16,7 +16,7 @@ export default function Nav({ theme = "light" }: Props) {
     <header>
       <nav className="screen-max-width-wrapper flex items-center justify-between mx-auto py-4">
         <Link href="/" className="z-50" onClick={() => setOpen(false)}>
-          <Logo className={`${theme === "dark" ? "text-neutral-300" : "text-content-hint"} w-8 h-8`} />
+          <Logo className="text-[#6858FE] w-8 h-8" />
         </Link>
 
         <div

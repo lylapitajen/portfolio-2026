@@ -4,6 +4,7 @@ import Markdown from "react-markdown";
 import Layout from "@/components/Layout";
 import { strapiImageUrl } from "@/lib/utils";
 import Link from "next/link";
+
 export async function generateStaticParams() {
   const caseStudies = await getAllCaseStudies();
 
@@ -15,6 +16,8 @@ export async function generateStaticParams() {
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const { title, content, longSummary, client, resultsMedia } = await getOneCaseStudy(slug);
+
+  console.log(client.agency?.logo.url);
 
   return (
     <Layout navTheme="dark" backgroundColor={client.brandColor}>

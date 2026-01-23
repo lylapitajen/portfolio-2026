@@ -3,7 +3,13 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [new URL(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/**`)],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: new URL(process.env.NEXT_PUBLIC_STRAPI_API_URL as string).hostname,
+        pathname: "/**",
+      },
+    ],
   },
   turbopack: {
     root: path.join(__dirname, ".."),

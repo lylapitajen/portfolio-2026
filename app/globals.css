@@ -157,7 +157,7 @@
     }
 
     p:has(img) {
-      @apply max-w-5xl mt-16 mb-30 text-sm text-content-muted italic;
+      @apply max-w-5xl mt-8 lg:mt-16 mb-16 md:mb-20 lg:mb-28 text-sm text-content-muted italic;
     }
 
     img {
