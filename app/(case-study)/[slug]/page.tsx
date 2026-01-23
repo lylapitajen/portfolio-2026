@@ -41,29 +41,38 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <div className="screen-max-width-wrapper pt-12">
             {/* AGENCY CREDIT */}
             {client.agency && (
-              <div className="flex items-center gap-1 text-content-muted max-w-3xl mx-auto mb-8">
-                <span>This project was completed as part of my role at </span>
-                <Image
-                  src={strapiImageUrl({ url: client.agency.logo.url })}
-                  alt={`${client.agency.name} logo`}
-                  width={20}
-                  height={20}
-                  className="ml-1 rounded-full"
-                />
-                <Link
-                  href={client.agency.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline cursor-pointer font-medium underline-offset-4 decoration-neutral-200"
-                >
-                  {client.agency.name}
-                </Link>
-              </div>
+              <p className=" text-content-muted max-w-3xl mx-auto mb-4 md:mb-8">
+                This project was completed as part of my role at
+                <span className="inline-flex items-center gap-1 whitespace-nowrap ml-1 translate-y-1">
+                  <Image
+                    src={strapiImageUrl({ url: client.agency.logo.url })}
+                    alt={`${client.agency.name} logo`}
+                    width={20}
+                    height={20}
+                    className="ml-1 rounded-full"
+                    unoptimized
+                  />
+                  <Link
+                    href={client.agency.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer font-medium underline-offset-4 decoration-neutral-200"
+                  >
+                    {client.agency.name}
+                  </Link>
+                </span>
+              </p>
             )}
 
             {/* RICH TEXT SECTION */}
             <div className="rich-text text-lg text-content-muted">
-              <Markdown>{content}</Markdown>
+              <Markdown
+              // components={{
+              //   li: ({ node, ...props }) => <span>hello</span>,
+              // }}
+              >
+                {content}
+              </Markdown>
             </div>
             {resultsMedia && (
               <div className="w-full flex flex-col gap-4 mt-12">
