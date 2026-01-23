@@ -165,7 +165,7 @@
     }
   }
   code {
-    @apply bg-neutral-100 p-1 rounded-xs text-sm text-blue-800 not-italic;
+    @apply bg-neutral-100 p-1 rounded-xs text-sm text-indigo-700 not-italic;
   }
 
   pre {

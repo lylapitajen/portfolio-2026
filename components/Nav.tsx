@@ -4,6 +4,7 @@ import { Button } from "./shadcn/button";
 import Link from "next/link";
 import { useState } from "react";
 import { PenTool, User } from "lucide-react";
+import Logo from "./Logo";
 
 type Props = {
   theme?: "dark" | "light";
@@ -15,7 +16,7 @@ export default function Nav({ theme = "light" }: Props) {
     <header>
       <nav className="screen-max-width-wrapper flex items-center justify-between mx-auto py-4">
         <Link href="/" className="z-50" onClick={() => setOpen(false)}>
-          <Image src="/lp-logo.svg" alt="Lyla Pitajen Logo" width={32} height={32} />
+          <Logo className={`${theme === "dark" ? "text-neutral-300" : "text-content-hint"} w-8 h-8`} />
         </Link>
 
         <div
