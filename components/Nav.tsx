@@ -4,31 +4,31 @@ import { Button } from "./shadcn/button";
 import Link from "next/link";
 import { useState } from "react";
 import { PenTool, User } from "lucide-react";
+import Logo from "./Logo";
 
-export default function Nav() {
+type Props = {
+  theme?: "dark" | "light";
+};
+
+export default function Nav({ theme = "light" }: Props) {
   const [open, setOpen] = useState(false);
   return (
     <header>
-      <nav className="flex items-center justify-between mx-auto py-4">
+      <nav className="screen-max-width-wrapper flex items-center justify-between mx-auto py-4">
         <Link href="/" className="z-50" onClick={() => setOpen(false)}>
-          <Image
-            src="/lp-logo.svg"
-            alt="Lyla Pitajen Logo"
-            width={32}
-            height={32}
-          />
+          <Logo className={`${theme === "dark" ? "text-neutral-300" : "text-content-hint"} w-8 h-8`} />
         </Link>
 
-        <div className="hidden items-center gap-6 text-content-muted sm:flex">
+        <div
+          className={`hidden sm:flex items-center gap-6 ${
+            theme === "light" ? "text-content-muted" : "text-neutral-200"
+          }`}
+        >
           <Link href="/#case-studies">Case Studies</Link>
           <Link href="/about">About</Link>
           {/* <Link href="/about">Blogs</Link> */}
           <Button>
-            <a
-              href="https://calendly.com/lylapitajen/discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://calendly.com/lylapitajen/discovery-call" target="_blank" rel="noopener noreferrer">
               Book a call
             </a>
           </Button>
