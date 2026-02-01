@@ -5,6 +5,8 @@ import Layout from "@/components/Layout";
 import { strapiImageUrl } from "@/lib/utils";
 import Link from "next/link";
 
+export const revalidate = 360; // seconds
+
 export async function generateStaticParams() {
   const caseStudies = await getAllCaseStudies();
 
