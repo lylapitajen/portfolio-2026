@@ -68,26 +68,41 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
             {/* RICH TEXT SECTION */}
             <div className="rich-text text-lg text-content-muted">
-              <Markdown
-              // components={{
-              //   li: ({ node, ...props }) => <span>hello</span>,
-              // }}
-              >
-                {content}
-              </Markdown>
+              <Markdown>{content}</Markdown>
             </div>
-            {resultsMedia && (
+            {resultsMedia?.length && (
               <div className="w-full flex flex-col gap-4 mt-12">
-                {resultsMedia.map((media) => (
-                  <Image
-                    key={media.url}
-                    src={strapiImageUrl({ url: media.url })}
-                    alt={media.alternativeText}
-                    className="w-full h-auto rounded-md"
-                    width={1280}
-                    height={720}
-                  />
-                ))}
+                {resultsMedia && (
+                  <div className="w-full flex flex-col gap-4 mt-12">
+                    {resultsMedia.map((media) => {
+                      const mediaUrl = strapiImageUrl({ url: media.url });
+                      const isVideo = media.url.match(/\.(mp4|webm|ogg|mov)$/i);
+
+                      return isVideo ? (
+                        <video
+                          autoPlay
+                          key={media.url}
+                          src={mediaUrl}
+                          className="w-full h-auto rounded-md border border-gray-300"
+                          muted
+                          playsInline
+                          loop
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        <Image
+                          key={media.url}
+                          src={mediaUrl}
+                          alt={media.alternativeText}
+                          className="w-full h-auto rounded-md border border-gray-200"
+                          width={1280}
+                          height={720}
+                        />
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             )}
           </div>

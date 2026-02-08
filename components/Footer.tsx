@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="screen-max-width-wrapper flex flex-col min-[420px]:flex-row min-[420px]:justify-between gap-2  py-6 mt-24 border-t text-content-hint text-sm">
       <div className="flex gap-2 items-center">
-        Designed on
+        Designed in
         <Tooltip>
           <TooltipTrigger asChild>
             <Image src="/figma-logo.svg" alt="Figma logo" height={8} width={8} />
