@@ -1,9 +1,12 @@
 import { getOneCaseStudy, getAllCaseStudies } from "@/lib/api/caseStudies";
 import Image from "next/image";
 import Markdown from "react-markdown";
-import Layout from "@/components/Layout";
 import { strapiImageUrl } from "@/lib/utils";
 import Link from "next/link";
+import CaseStudySummaryItem from "@/components/case-study/CaseStudySummaryItem";
+import CrosshairFrame from "@/components/CrosshairFrame";
+import PatternDivider from "@/components/PatternDivider";
+import SectionHeading from "@/components/SectionHeading";
 
 export const revalidate = 360; // seconds
 
@@ -17,43 +20,64 @@ export async function generateStaticParams() {
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const { title, content, longSummary, client, resultsMedia } = await getOneCaseStudy(slug);
-
-  console.log(client.agency?.logo.url);
+  const {
+    title,
+    previewMedia,
+    problemSummary,
+    roleSummary,
+    resultSummary,
+    content,
+    longSummary,
+    client,
+    resultsMedia,
+  } = await getOneCaseStudy(slug);
 
   return (
-    <Layout navTheme="dark" backgroundColor={client.brandColor}>
-      <main className="flex flex-col gap-20 min-h-screen w-full">
-        <section className="flex flex-col min-h-[90vh] pt-24" style={{ backgroundColor: client.brandColor }}>
-          <div className="screen-max-width-wrapper">
-            <div className="flex flex-col gap-2 items-start max-w-3xl">
+    <div className="bg-pattern-dots">
+      <main className="screen-max-width-wrapper flex flex-col min-h-screen border-x bg-bg-primary">
+        <section className=" flex flex-col h-[90vh] max-h-[700px]">
+          <div className="grid grid-cols-2 flex-1 border-b">
+            <div className="flex flex-col gap-4 justify-center p-tile border-r">
               <Image
                 src={strapiImageUrl({ url: client.logo.url })}
                 alt={`${title} logo`}
-                height={200}
+                height={300}
                 width={200}
-                className="h-7! w-auto! mb-4"
+                className="h-7! w-auto!"
               />
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-neutral-50 mb-2">{title}</h1>
-              <p className="text-neutral-200 text-xl">{longSummary}</p>
+              <h1 className="font-sans text-2xl sm:text-3xl md:text-4xl text-fg-primary mb-2">{title}</h1>
             </div>
+            <div className="bg-neutral-50"></div>
+          </div>
+          <div className="grid grid-cols-3">
+            <CaseStudySummaryItem label="problem" content={problemSummary} />
+            <CaseStudySummaryItem label="role" content={roleSummary} />
+            <CaseStudySummaryItem label="result" content={resultSummary} />
           </div>
         </section>
-        <section className="w-full bg-background">
-          <div className="screen-max-width-wrapper pt-12">
+        <PatternDivider />
+        <section>
+          <SectionHeading text="Deep Dive" />
+          <div className="py-20">
+            {/* RICH TEXT SECTION */}
+            <div className="rich-text text-fg-primary">
+              <Markdown>{content}</Markdown>
+            </div>
             {/* AGENCY CREDIT */}
             {client.agency && (
-              <p className=" text-content-muted max-w-3xl mx-auto mb-4 md:mb-8">
+              <div className=" text-fg-secondary text-sm max-w-3xl mx-auto my-4  md:my-8">
                 This project was completed as part of my role at
-                <span className="inline-flex items-center gap-1 whitespace-nowrap ml-1 translate-y-1">
-                  <Image
-                    src={strapiImageUrl({ url: client.agency.logo.url })}
-                    alt={`${client.agency.name} logo`}
-                    width={20}
-                    height={20}
-                    className="ml-1 rounded-full"
-                    unoptimized
-                  />
+                <span className="inline-flex items-center gap-2 whitespace-nowrap ml-3 translate-y-1">
+                  <CrosshairFrame>
+                    <Image
+                      src={strapiImageUrl({ url: client.agency.logo.url })}
+                      alt={`${client.agency.name} logo`}
+                      width={24}
+                      height={24}
+                      unoptimized
+                    />
+                  </CrosshairFrame>
+
                   <Link
                     href={client.agency.website}
                     target="_blank"
@@ -63,51 +87,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                     {client.agency.name}
                   </Link>
                 </span>
-              </p>
-            )}
-
-            {/* RICH TEXT SECTION */}
-            <div className="rich-text text-lg text-content-muted">
-              <Markdown>{content}</Markdown>
-            </div>
-            {resultsMedia?.length && (
-              <div className="w-full flex flex-col gap-4 mt-12">
-                {resultsMedia && (
-                  <div className="w-full flex flex-col gap-4 mt-12">
-                    {resultsMedia.map((media) => {
-                      const mediaUrl = strapiImageUrl({ url: media.url });
-                      const isVideo = media.url.match(/\.(mp4|webm|ogg|mov)$/i);
-
-                      return isVideo ? (
-                        <video
-                          autoPlay
-                          key={media.url}
-                          src={mediaUrl}
-                          className="w-full h-auto rounded-md border border-gray-300"
-                          muted
-                          playsInline
-                          loop
-                        >
-                          Your browser does not support the video tag.
-                        </video>
-                      ) : (
-                        <Image
-                          key={media.url}
-                          src={mediaUrl}
-                          alt={media.alternativeText}
-                          className="w-full h-auto rounded-md border border-gray-200"
-                          width={1280}
-                          height={720}
-                        />
-                      );
-                    })}
-                  </div>
-                )}
               </div>
             )}
           </div>
         </section>
       </main>
-    </Layout>
+    </div>
   );
 }

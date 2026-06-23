@@ -10,29 +10,19 @@ export default function CaseStudyListItem({
   slug,
 }: Pick<CaseStudy, "title" | "shortSummary" | "client" | "slug">) {
   return (
-    <Link href={`/${slug}`}>
-      <div className="flex flex-col gap-4">
-        <div
-          className={`flex items-center justify-center h-[400px] w-full rounded-md`}
-          style={{ backgroundColor: client.brandColor }}
-        >
-          <Image
-            src={strapiImageUrl({ url: client.logo.url })}
-            alt={`${title} logo`}
-            height={200}
-            width={200}
-            className="h-10!"
-          />
-        </div>
-        <div className="flex flex-col gap-1 items-start">
-          <div className="flex gap-2 flex-col-reverse items-start sm:flex-row sm:items-center">
-            <h3 className="text-xl font-medium">{title}</h3>
-            <span className="uppercase text-xs text-content-muted py-1 px-2 bg-neutral-100 rounded-sm tracking-wide">
-              Coming soon
-            </span>
-          </div>
-          <p className="text-content-muted w-full leading-snug">{shortSummary}</p>
-        </div>
+    <Link href={`/${slug}`} className="group flex flex-col gap-4 overflow-hidden p-tile hover:bg-neutral-50">
+      <div className="flex items-center justify-center h-80 w-full p-2 bg-bg-secondary group-hover:bg-bg-primary bg-pattern-dots border transition-colors">
+        <Image
+          src={strapiImageUrl({ url: client.logo.url })}
+          alt={`${title} logo`}
+          height={200}
+          width={200}
+          className="h-8! w-auto!"
+        />
+      </div>
+      <div className="flex flex-col gap-1">
+        <h3 className="text-xl font-sans font-bold">{title}</h3>
+        <p className="text-fg-secondary">{shortSummary}</p>
       </div>
     </Link>
   );

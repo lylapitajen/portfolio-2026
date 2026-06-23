@@ -6,14 +6,21 @@ export type CaseStudy = {
   slug: string;
   shortSummary: string;
   longSummary: string;
+  problemSummary: string;
+  roleSummary: string;
+  resultSummary: string;
   content: string;
+  previewMedia: {
+    url: string;
+    alternativeText: string;
+  };
   resultsMedia?: Array<{
     url: string;
     alternativeText: string;
   }>;
   client: {
-    brandColor: string;
     name: string;
+    brandColor: string;
     logo: {
       url: string;
     };
@@ -23,6 +30,7 @@ export type CaseStudy = {
         url: string;
       };
       website: string;
+      brandColor: string;
     };
   };
 };

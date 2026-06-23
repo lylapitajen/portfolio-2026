@@ -2,36 +2,50 @@
 import Image from "next/image";
 import { Button } from "./shadcn/button";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PenTool, User } from "lucide-react";
 import Logo from "./Logo";
+import NavItem from "./NavItem";
 
-type Props = {
-  theme?: "dark" | "light";
-};
-
-export default function Nav({ theme = "light" }: Props) {
+export default function Nav() {
   const [open, setOpen] = useState(false);
-  return (
-    <header>
-      <nav className="screen-max-width-wrapper flex items-center justify-between mx-auto py-4">
-        <Link href="/" className="z-50" onClick={() => setOpen(false)}>
-          <Logo className="text-[#6858FE] w-8 h-8" />
-        </Link>
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
-        <div
-          className={`hidden sm:flex items-center gap-6 ${
-            theme === "light" ? "text-content-muted" : "text-neutral-200"
-          }`}
-        >
-          <Link href="/#case-studies">Case Studies</Link>
-          <Link href="/about">About</Link>
-          {/* <Link href="/about">Blogs</Link> */}
-          <Button>
-            <a href="https://calendly.com/lylapitajen/discovery-call" target="_blank" rel="noopener noreferrer">
-              Book a call
-            </a>
-          </Button>
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setVisible(currentScrollY < lastScrollY.current || currentScrollY < 20);
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={`border-b border-border-strong bg-bg-primary bg-pattern-diagonal fixed w-full transition-transform duration-200 ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      <nav className="flex justify-between screen-max-width-wrapper bg-bg-primary">
+        <NavItem>
+          <Link href="/" className="z-50" onClick={() => setOpen(false)}>
+            <Logo className="text-accent w-8 h-8" />
+          </Link>
+        </NavItem>
+
+        <div className="hidden sm:flex items-center">
+          <NavItem>
+            <Link href="/#case-studies">Work</Link>
+          </NavItem>
+          <NavItem>
+            <Link href="/about">About</Link>
+          </NavItem>
+          <NavItem>
+            <Link href="https://calendly.com/lylapitajen/discovery-call">Book a call</Link>
+          </NavItem>
         </div>
         <button
           className="block relative sm:hidden z-50 h-6 w-6"
@@ -39,17 +53,17 @@ export default function Nav({ theme = "light" }: Props) {
           aria-label="Toggle menu"
         >
           <span
-            className={`absolute block h-[3px] w-7 bg-content-muted transition-all duration-300 rounded-sm ${
+            className={`absolute block h-[3px] w-7 bg-fg-secondary transition-all duration-300 rounded-sm ${
               open ? "-translate-y-2 top-1/2 rotate-45" : "-translate-y-2"
             }`}
           />
           <span
-            className={`absolute block h-[3px] w-7 bg-content-muted transition-all duration-300 rounded-sm ${
+            className={`absolute block h-[3px] w-7 bg-fg-secondary transition-all duration-300 rounded-sm ${
               open ? "opacity-0" : "opacity-100"
             }`}
           />
           <span
-            className={`absolute block h-[3px] w-7 bg-content-muted transition-all duration-300 rounded-sm ${
+            className={`absolute block h-[3px] w-7 bg-fg-secondary transition-all duration-300 rounded-sm ${
               open ? "-translate-y-2 top-1/2 -rotate-45" : "translate-y-2"
             }`}
           />
@@ -62,18 +76,18 @@ export default function Nav({ theme = "light" }: Props) {
           >
             <Link
               href="/about"
-              className="flex items-center gap-2 text-content-default text-2xl font-medium"
+              className="flex items-center gap-2 text-fg-primary text-2xl font-medium"
               onClick={() => setOpen(false)}
             >
-              <User className="text-content-muted" />
+              <User className="text-fg-secondary" />
               About
             </Link>
             <Link
               href="/#case-studies"
-              className="flex items-center gap-2 text-content-default text-2xl font-medium"
+              className="flex items-center gap-2 text-fg-primary text-2xl font-medium"
               onClick={() => setOpen(false)}
             >
-              <PenTool className="text-content-muted" />
+              <PenTool className="text-fg-secondary" />
               Case Studies
             </Link>
             <Button className="mt-auto" size="lg">
