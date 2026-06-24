@@ -28,7 +28,7 @@ export default function TestimonialsSection({ testimonials }: Props) {
                 </div>
               </CrosshairFrame>
               <div>
-                <p className="font-bold font-sans text-fg-primary mb-1">{testimonial.author}</p>
+                <p className="font-bold font-sans text-fg-primary mb-0.5">{testimonial.author}</p>
                 <p className="text-sm text-fg-secondary">
                   {testimonial.authorJobTitle}, {testimonial.client.name}
                 </p>

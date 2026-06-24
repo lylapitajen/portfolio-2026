@@ -57,6 +57,7 @@
 }
 
 :root {
+  --spacing-tile: 1.5rem;
   --section-px: 3rem;
   --section-py: 5rem;
   --pattern-line: var(--color-neutral-100);
@@ -92,6 +93,12 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --spacing-tile: 2rem;
+  }
 }
 
 .dark {
@@ -152,10 +159,10 @@
     }
     p {
       @apply mb-6;
+    }
 
-      a {
-        @apply underline cursor-pointer font-medium underline-offset-5;
-      }
+    a {
+      @apply underline cursor-pointer font-medium underline-offset-5;
     }
 
     p:has(img) {
@@ -209,6 +216,9 @@
 }
 
 @layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
   * {
     @apply border-border outline-ring/50;
   }

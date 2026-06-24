@@ -4,6 +4,7 @@ import Markdown from "react-markdown";
 import { strapiImageUrl } from "@/lib/utils";
 import Link from "next/link";
 import CaseStudySummaryItem from "@/components/case-study/CaseStudySummaryItem";
+import CaseStudyPreviewMedia from "@/components/case-study/CaseStudyPreviewMedia";
 import CrosshairFrame from "@/components/CrosshairFrame";
 import PatternDivider from "@/components/PatternDivider";
 import SectionHeading from "@/components/SectionHeading";
@@ -20,23 +21,15 @@ export async function generateStaticParams() {
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const {
-    title,
-    previewMedia,
-    problemSummary,
-    roleSummary,
-    resultSummary,
-    content,
-    longSummary,
-    client,
-    resultsMedia,
-  } = await getOneCaseStudy(slug);
+  const { title, previewMedia, problemSummary, roleSummary, resultSummary, content, client } = await getOneCaseStudy(
+    slug
+  );
 
   return (
     <div className="bg-pattern-dots">
       <main className="screen-max-width-wrapper flex flex-col min-h-screen border-x bg-bg-primary">
-        <section className=" flex flex-col h-[90vh] max-h-[700px]">
-          <div className="grid grid-cols-2 flex-1 border-b">
+        <section className=" flex flex-col min-h-[90vh] lg:max-h-[700px]">
+          <div className="grid md:grid-cols-2 flex-1 border-b">
             <div className="flex flex-col gap-4 justify-center p-tile border-r">
               <Image
                 src={strapiImageUrl({ url: client.logo.url })}
@@ -47,9 +40,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               />
               <h1 className="font-sans text-2xl sm:text-3xl md:text-4xl text-fg-primary mb-2">{title}</h1>
             </div>
-            <div className="bg-neutral-50"></div>
+            <CaseStudyPreviewMedia previewMedia={previewMedia} className="h-full border-t md:border-t-0" />
           </div>
-          <div className="grid grid-cols-3">
+          <div className="grid md:grid-cols-3">
             <CaseStudySummaryItem label="problem" content={problemSummary} />
             <CaseStudySummaryItem label="role" content={roleSummary} />
             <CaseStudySummaryItem label="result" content={resultSummary} />
@@ -58,9 +51,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <PatternDivider />
         <section>
           <SectionHeading text="Deep Dive" />
-          <div className="py-20">
+          <div className="py-20 px-tile w-full">
             {/* RICH TEXT SECTION */}
-            <div className="rich-text text-fg-primary">
+            <div className="rich-text text-fg-primary mx-auto">
               <Markdown>{content}</Markdown>
             </div>
             {/* AGENCY CREDIT */}

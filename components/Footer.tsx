@@ -4,7 +4,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./shadcn/tooltip";
 export default function Footer() {
   return (
     <footer className="border-t bg-pattern-diagonal">
-      <div className="screen-max-width-wrapper bg-bg-primary flex flex-col border-x min-[420px]:flex-row min-[420px]:justify-between gap-2  py-4 text-fg-tertiary text-sm px-tile">
+      <div className="screen-max-width-wrapper bg-bg-primary flex flex-col border-x sm:flex-row sm:justify-between gap-2  py-4 text-fg-tertiary text-sm px-tile">
         <div className="flex gap-2 items-center">
           Designed in
           <Tooltip>

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { experiences } from "./data.js";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CaseStudyListItem from "@/components/CaseStudyListItem";
 import ExperienceListItem from "@/components/ExperienceListItem";
@@ -7,10 +6,14 @@ import PatternDivider from "@/components/PatternDivider";
 import SectionHeading from "@/components/SectionHeading";
 import { getAllCaseStudies } from "@/lib/api/caseStudies";
 import { getAllTestimonials } from "@/lib/api/testimonials";
+import { getAllExperiences } from "@/lib/api/experiences";
 
 export default async function Home() {
-  // Fetch data for case studies and testimonials at the same time for efficiency
-  const [caseStudies, testimonials] = await Promise.all([getAllCaseStudies(), getAllTestimonials()]);
+  const [caseStudies, testimonials, experiences] = await Promise.all([
+    getAllCaseStudies(),
+    getAllTestimonials(),
+    getAllExperiences(),
+  ]);
 
   return (
     <div className="bg-pattern-dots">
@@ -28,13 +31,13 @@ export default async function Home() {
         <PatternDivider />
         <section className="flex flex-col">
           <SectionHeading text="Experience" />
-          <div className="grid grid-cols-4">
-            <div className="flex flex-col col-span-3 border-r">
+          <div className="flex flex-col lg:grid lg:grid-cols-4">
+            <div className="flex flex-col lg:col-span-3 lg:border-r">
               {experiences.map((experience, i) => (
                 <ExperienceListItem {...experience} key={i} />
               ))}
             </div>
-            <div className="bg-pattern-dots">
+            <div className="bg-pattern-dots min-w-36 p-tile border-t lg:border-t-0">
               <p>Download CV placeholder</p>
             </div>
           </div>
@@ -42,9 +45,15 @@ export default async function Home() {
         <PatternDivider />
         <section id="case-studies" className="flex flex-col">
           <SectionHeading text="Case Studies" />
-          <div className="grid grid-cols-2 [&>*:nth-child(odd)]:border-r [&>*:nth-child(-n+2)]:border-b">
-            {caseStudies.map(({ id, title, shortSummary, client, slug }) => (
-              <CaseStudyListItem key={id} title={title} shortSummary={shortSummary} client={client} slug={slug} />
+          <div className="grid  md:grid-cols-2 [&>*:nth-child(odd)]:border-r [&>*:nth-child(-n+2)]:border-b">
+            {caseStudies.map(({ id, title, shortSummary, slug, previewMedia }) => (
+              <CaseStudyListItem
+                key={id}
+                title={title}
+                shortSummary={shortSummary}
+                slug={slug}
+                previewMedia={previewMedia}
+              />
             ))}
           </div>
         </section>

@@ -10,7 +10,7 @@ export type CaseStudy = {
   roleSummary: string;
   resultSummary: string;
   content: string;
-  previewMedia: {
+  previewMedia?: {
     url: string;
     alternativeText: string;
   };
@@ -40,6 +40,7 @@ export const getAllCaseStudies = async (): Promise<CaseStudy[]> => {
     const res = await strapiAxios.get("/case-studies", {
       params: {
         populate: {
+          previewMedia: true,
           client: {
             populate: {
               logo: true,
@@ -63,7 +64,7 @@ export const getOneCaseStudy = async (slug: string): Promise<CaseStudy> => {
           slug: slug,
         },
         populate: {
-          resultsMedia: true,
+          previewMedia: true,
           client: {
             populate: {
               logo: true,
