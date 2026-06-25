@@ -31,13 +31,16 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <section className=" flex flex-col min-h-[90vh] lg:max-h-[700px]">
           <div className="grid md:grid-cols-2 flex-1 border-b">
             <div className="flex gap-3 items-center p-tile border-r">
-              <Image
-                src={strapiImageUrl({ url: client.squareLogo.url })}
-                alt={`${title} logo`}
-                height={64}
-                width={64}
-                className="h-7! w-auto!"
-              />
+              <CrosshairFrame>
+                <Image
+                  src={strapiImageUrl({ url: client.squareLogo.url })}
+                  alt={`${title} logo`}
+                  height={64}
+                  width={64}
+                  className="h-8! w-auto!"
+                />
+              </CrosshairFrame>
+
               <h1 className="font-sans text-2xl sm:text-3xl md:text-4xl text-fg-primary">{title}</h1>
             </div>
             <CaseStudyPreviewMedia previewMedia={previewMedia} className="h-full border-t md:border-t-0" />

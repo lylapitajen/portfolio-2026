@@ -76,7 +76,7 @@ export default function Nav() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="flex-1 flex flex-col sm:hidden animate-in slide-in-from-top-4 fade-in duration-200">
+        <div className="flex-1 flex flex-col sm:hidden animate-in slide-in-from-top-4 fade-in duration-200 bg-bg-primary">
           {links.map(({ href, label }) => (
             <Link key={href} href={href} className="border-b first:border-t p-tile" onClick={() => setOpen(false)}>
               {label}
