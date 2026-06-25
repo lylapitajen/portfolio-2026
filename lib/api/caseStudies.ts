@@ -21,7 +21,7 @@ export type CaseStudy = {
   client: {
     name: string;
     brandColor: string;
-    logo: {
+    squareLogo: {
       url: string;
     };
     agency?: {
@@ -67,7 +67,7 @@ export const getOneCaseStudy = async (slug: string): Promise<CaseStudy> => {
           previewMedia: true,
           client: {
             populate: {
-              logo: true,
+              squareLogo: true,
               agency: {
                 populate: {
                   logo: true,
