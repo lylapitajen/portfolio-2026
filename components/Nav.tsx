@@ -29,16 +29,12 @@ export default function Nav() {
 
   return (
     <header
-      className={`z-50 w-full bg-bg-primary transition-transform duration-200 ${
-        open
-          ? "fixed inset-0 flex flex-col"
-          : scrolled
-          ? "fixed border-b border-border-strong"
-          : "relative border-b border-border-strong"
+      className={`z-50 w-full bg-pattern-diagonal transition-transform duration-200 ${
+        open ? "fixed inset-0 flex flex-col" : scrolled ? "fixed border-y" : "relative border-y"
       } ${!open && scrolled && !visible ? "-translate-y-full" : "translate-y-0"}`}
     >
       {/* Nav bar */}
-      <nav className="flex justify-between w-full screen-max-width-wrapper">
+      <nav className="flex justify-between w-full screen-max-width-wrapper bg-bg-primary">
         <NavItem>
           <Link href="/" onClick={() => setOpen(false)}>
             <Logo className="text-accent w-8 h-8" />

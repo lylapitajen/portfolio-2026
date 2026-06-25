@@ -7,6 +7,9 @@ import SectionHeading from "@/components/SectionHeading";
 import { getAllCaseStudies } from "@/lib/api/caseStudies";
 import { getAllTestimonials } from "@/lib/api/testimonials";
 import { getAllExperiences } from "@/lib/api/experiences";
+import { Button } from "@/components/shadcn/button";
+import { RiArrowRightUpLine } from "@remixicon/react";
+import FigmaComponentFrame from "@/components/FigmaComponentFrame";
 
 export default async function Home() {
   const [caseStudies, testimonials, experiences] = await Promise.all([
@@ -20,7 +23,7 @@ export default async function Home() {
       <main className="screen-max-width-wrapper flex flex-col min-h-screen w-full border-x bg-bg-primary">
         <section className="md:h-[70vh] p-tile flex flex-col gap-2 justify-center">
           <p className="all-caps text-fg-tertiary">Hi, I'm Lyla</p>
-          <h1 className="font-sans text-2xl sm:text-4xl md:text-5xl max-w-4xl text-fg-primary">
+          <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl max-w-4xl text-fg-primary">
             I build design systems so product teams spend less time on decisions and more time shipping.
           </h1>
           <div className="flex gap-2 items-center pt-4 text-fg-tertiary">
@@ -37,8 +40,24 @@ export default async function Home() {
                 <ExperienceListItem {...experience} key={i} />
               ))}
             </div>
-            <div className="bg-pattern-dots min-w-36 p-tile border-t lg:border-t-0">
-              <p>Download CV placeholder</p>
+            <div className="bg-pattern-dots min-w-36 flex justify-center items-center p-tile border-t lg:border-t-0">
+              <FigmaComponentFrame name="Button">
+                <div className="flex flex-col gap-8 items-center">
+                  {(["default", "outline", "ghost"] as const).map((variant) => (
+                    <a
+                      key={variant}
+                      href="https://drive.google.com/file/d/1HCb_xFPAMgYvSjZhWrfhhiOCv0fd6A6-/view"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button variant={variant}>
+                        {" "}
+                        View CV <RiArrowRightUpLine />
+                      </Button>
+                    </a>
+                  ))}
+                </div>
+              </FigmaComponentFrame>
             </div>
           </div>
         </section>

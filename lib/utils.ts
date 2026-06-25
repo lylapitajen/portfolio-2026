@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function formatDate(dateString: string): string {
   const [year, month, day] = dateString.split("-").map(Number);
   return new Date(year, month - 1, day).toLocaleDateString("en-US", {
-    month: "long",
+    month: "short",
     year: "numeric",
   });
 }
