@@ -20,8 +20,7 @@ export default function CaseStudyPreviewMedia({ previewMedia, className }: Props
           alt={previewMedia.alternativeText ?? ""}
           fill
           className="object-cover"
-          quality={90}
-          sizes="(min-width: 1440px) 720px, (min-width: 768px) 50vw, 100vw"
+          quality={100}
           unoptimized
         />
       )}

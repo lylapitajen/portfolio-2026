@@ -7,7 +7,7 @@ import NavItem from "./NavItem";
 const links = [
   { href: "/#case-studies", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "https://calendly.com/lylapitajen/discovery-call", label: "Book a call" },
+  { href: "https://calendly.com/lylapitajen/discovery-call", label: "Book a call", newTab: true },
 ];
 
 export default function Nav() {
@@ -42,9 +42,11 @@ export default function Nav() {
         </NavItem>
 
         <div className="hidden sm:flex">
-          {links.map(({ href, label }) => (
+          {links.map(({ href, label, newTab }) => (
             <NavItem key={href}>
-              <Link href={href}>{label}</Link>
+              <Link href={href} {...(newTab && { target: "_blank", rel: "noopener noreferrer" })}>
+                {label}
+              </Link>
             </NavItem>
           ))}
         </div>
@@ -77,8 +79,14 @@ export default function Nav() {
       {/* Mobile dropdown */}
       {open && (
         <div className="flex-1 flex flex-col sm:hidden animate-in slide-in-from-top-4 fade-in duration-200 bg-bg-primary">
-          {links.map(({ href, label }) => (
-            <Link key={href} href={href} className="border-b first:border-t p-tile" onClick={() => setOpen(false)}>
+          {links.map(({ href, label, newTab }) => (
+            <Link
+              key={href}
+              href={href}
+              className="border-b first:border-t p-tile"
+              onClick={() => setOpen(false)}
+              {...(newTab && { target: "_blank", rel: "noopener noreferrer" })}
+            >
               {label}
             </Link>
           ))}

@@ -151,10 +151,10 @@
       @apply max-w-3xl mx-auto;
     }
     h2 {
-      @apply text-2xl mt-12 mb-4 text-fg-primary font-sans font-semibold;
+      @apply text-2xl mt-12 mb-4 text-fg-primary font-sans font-bold;
     }
     h3 {
-      @apply text-lg mt-6 mb-2 text-fg-primary font-sans font-semibold;
+      @apply text-lg mt-6 mb-2 text-fg-primary font-sans font-bold;
     }
     li {
       @apply list-disc mb-1.5 list-inside;
@@ -234,6 +234,6 @@
   h4,
   h5,
   h6 {
-    @apply font-semibold tracking-tight leading-[1.15];
+    @apply font-bold tracking-tight leading-[1.15];
   }
 }

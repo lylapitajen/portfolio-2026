@@ -28,8 +28,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   return (
     <div className="bg-pattern-dots">
       <main className="screen-max-width-wrapper flex flex-col min-h-screen border-x bg-bg-primary">
-        <section className=" flex flex-col min-h-[90vh] lg:max-h-[700px]">
-          <div className="grid md:grid-cols-2 flex-1 border-b">
+        <section className=" flex flex-col">
+          <div className="grid md:grid-cols-2 border-b">
             <div className="flex gap-3 items-center p-tile border-r">
               <CrosshairFrame>
                 <Image
