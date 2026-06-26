@@ -18,6 +18,7 @@ export default function AboutPage() {
                   href="https://www.linkedin.com/in/lyla-pitajen-00b25a266/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="underline cursor-pointer font-medium underline-offset-5"
                 >
                   LinkedIn
                 </Link>

@@ -8,7 +8,7 @@ type Props = {
 export default function NavItem({ children, className }: Props) {
   return (
     <div
-      className={`flex flex-row items-center py-2 px-4 border-r border-border-strong hover:bg-bg-element-hover first:border-l text-fg-secondary ${
+      className={`cursor-pointer flex flex-row items-center py-2 px-4 border-r border-border-strong hover:bg-bg-element-hover first:border-l text-fg-secondary ${
         className ?? ""
       }`}
     >
