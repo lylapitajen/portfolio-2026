@@ -5,8 +5,8 @@ import Footer from "@/components/Footer";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
-  title: "Lyla Pitajen | Product Designer & UX Engineer",
-  description: "Lyla Pitajen's UX and dev portfolio",
+  title: "Lyla Pitajen | Product & Design System Designer",
+  description: "Lyla Pitajen's Portfolio",
 };
 
 const InterFont = Inter({
