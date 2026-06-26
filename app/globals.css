@@ -234,6 +234,10 @@
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight leading-[1.15];
+    @apply font-semibold tracking-tight leading-[1.15];
+  }
+
+  a {
+    @apply underline cursor-pointer font-medium underline-offset-5;
   }
 }
