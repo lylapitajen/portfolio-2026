@@ -160,7 +160,7 @@
       @apply list-disc mb-1.5 list-inside;
     }
     p {
-      @apply mb-6;
+      @apply mb-4;
     }
 
     a {
@@ -168,7 +168,7 @@
     }
 
     p:has(img) {
-      @apply max-w-5xl mt-8 lg:mt-16 mb-16 md:mb-20 lg:mb-28 text-sm text-fg-secondary;
+      @apply max-w-5xl mt-8 lg:mt-16 mb-8 md:mb-12 lg:mb-16 text-sm text-fg-secondary;
     }
 
     img {

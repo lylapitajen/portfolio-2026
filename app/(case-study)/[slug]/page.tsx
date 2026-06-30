@@ -1,5 +1,6 @@
 import { getOneCaseStudy, getAllCaseStudies } from "@/lib/api/caseStudies";
 import Image from "next/image";
+import React from "react";
 import Markdown from "react-markdown";
 import { strapiImageUrl } from "@/lib/utils";
 import Link from "next/link";
@@ -57,7 +58,42 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <div className="py-20 px-tile w-full">
             {/* RICH TEXT SECTION */}
             <div className="rich-text text-fg-primary mx-auto">
-              <Markdown>{content}</Markdown>
+              <Markdown
+                components={{
+                  p: ({ children }) => {
+                    const videoExts = [".mp4", ".webm", ".mov", ".ogg"];
+                    const childArray = React.Children.toArray(children);
+                    if (childArray.length >= 1 && React.isValidElement(childArray[0])) {
+                      const child = childArray[0] as React.ReactElement<{ href?: string }>;
+                      const href = child.props.href ?? "";
+                      if (child.type === "a" && videoExts.some((ext) => href.toLowerCase().endsWith(ext))) {
+                        const caption = childArray.slice(1);
+                        return (
+                          <>
+                            <div className="max-w-5xl mx-auto my-8 bg-bg-secondary rounded-md p-12">
+                              <video
+                                autoPlay
+                                playsInline
+                                muted
+                                loop
+                                src={href}
+                                controls
+                                className="w-full rounded-md border"
+                              />
+                            </div>
+                            {caption.length > 0 && (
+                              <p className="max-w-5xl mx-auto mb-16 -mt-4 text-sm text-fg-secondary">{caption}</p>
+                            )}
+                          </>
+                        );
+                      }
+                    }
+                    return <p>{children}</p>;
+                  },
+                }}
+              >
+                {content}
+              </Markdown>
             </div>
             {/* AGENCY CREDIT */}
             {client.agency && (
