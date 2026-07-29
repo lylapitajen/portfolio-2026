@@ -6,6 +6,7 @@ import { strapiImageUrl } from "@/lib/utils";
 import Link from "next/link";
 import CaseStudySummaryItem from "@/components/case-study/CaseStudySummaryItem";
 import CaseStudyPreviewMedia from "@/components/case-study/CaseStudyPreviewMedia";
+import QuoteAvatar from "@/components/case-study/QuoteAvatar";
 import CrosshairFrame from "@/components/CrosshairFrame";
 import PatternDivider from "@/components/PatternDivider";
 import SectionHeading from "@/components/SectionHeading";
@@ -90,6 +91,12 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                     }
                     return <p>{children}</p>;
                   },
+                  blockquote: ({ children }) => (
+                    <blockquote>
+                      <QuoteAvatar />
+                      {children}
+                    </blockquote>
+                  ),
                 }}
               >
                 {content}
