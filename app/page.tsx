@@ -1,6 +1,6 @@
 import Image from "next/image";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import CaseStudyListItem from "@/components/CaseStudyListItem";
+import CaseStudyListItem from "@/components/case-study/CaseStudyListItem";
 import ExperienceListItem from "@/components/ExperienceListItem";
 import PatternDivider from "@/components/PatternDivider";
 import SectionHeading from "@/components/SectionHeading";

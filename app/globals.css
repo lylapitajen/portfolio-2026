@@ -150,6 +150,10 @@
     ul {
       @apply max-w-3xl mx-auto;
     }
+    h2,
+    h3 {
+      scroll-margin-top: 3rem;
+    }
     h2 {
       @apply text-2xl mt-12 mb-4 text-fg-primary font-sans font-bold;
     }
@@ -172,7 +176,7 @@
     }
 
     img {
-      @apply rounded-md mb-4;
+      @apply mb-4;
     }
 
     blockquote {
@@ -232,6 +236,7 @@
 @layer base {
   html {
     scrollbar-gutter: stable;
+    scroll-behavior: smooth;
   }
   * {
     @apply border-border outline-ring/50;
