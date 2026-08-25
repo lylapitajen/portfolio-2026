@@ -53,81 +53,83 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </div>
         </section>
         <PatternDivider />
-        <section className="md:grid md:grid-cols-5">
-          <TableOfContents content={content} className="hidden md:block" />
+        <section className="lg:grid lg:grid-cols-5">
+          <TableOfContents content={content} className="hidden lg:block" />
           {/* RICH TEXT SECTION */}
-          <div className="rich-text text-fg-primary mx-auto col-span-4 p-tile">
-            <Markdown
-              components={{
-                h2: ({ children }) => <h2 id={headings[headingIndex++]?.id}>{children}</h2>,
-                h3: ({ children }) => <h3 id={headings[headingIndex++]?.id}>{children}</h3>,
-                p: ({ children }) => {
-                  const videoExts = [".mp4", ".webm", ".mov", ".ogg"];
-                  const childArray = React.Children.toArray(children);
-                  if (childArray.length >= 1 && React.isValidElement(childArray[0])) {
-                    const child = childArray[0] as React.ReactElement<{ href?: string }>;
-                    const href = child.props.href ?? "";
-                    if (child.type === "a" && videoExts.some((ext) => href.toLowerCase().endsWith(ext))) {
-                      const caption = childArray.slice(1);
-                      return (
-                        <>
-                          <div className="max-w-5xl mx-auto my-8 bg-bg-secondary rounded-md p-12">
-                            <video
-                              autoPlay
-                              playsInline
-                              muted
-                              loop
-                              src={href}
-                              controls
-                              className="w-full rounded-md border"
-                            />
-                          </div>
-                          {caption.length > 0 && (
-                            <p className="max-w-5xl mx-auto mb-16 -mt-4 text-sm text-fg-secondary">{caption}</p>
-                          )}
-                        </>
-                      );
+          <div className="flex flex-col gap-4 mx-auto col-span-4 p-tile">
+            <div className="rich-text text-fg-primary ">
+              <Markdown
+                components={{
+                  h2: ({ children }) => <h2 id={headings[headingIndex++]?.id}>{children}</h2>,
+                  h3: ({ children }) => <h3 id={headings[headingIndex++]?.id}>{children}</h3>,
+                  p: ({ children }) => {
+                    const videoExts = [".mp4", ".webm", ".mov", ".ogg"];
+                    const childArray = React.Children.toArray(children);
+                    if (childArray.length >= 1 && React.isValidElement(childArray[0])) {
+                      const child = childArray[0] as React.ReactElement<{ href?: string }>;
+                      const href = child.props.href ?? "";
+                      if (child.type === "a" && videoExts.some((ext) => href.toLowerCase().endsWith(ext))) {
+                        const caption = childArray.slice(1);
+                        return (
+                          <>
+                            <div className="max-w-5xl mx-auto my-8 bg-bg-secondary p-12">
+                              <video
+                                autoPlay
+                                playsInline
+                                muted
+                                loop
+                                src={href}
+                                controls
+                                className="w-full rounded-md border max-h-[600px]"
+                              />
+                            </div>
+                            {caption.length > 0 && (
+                              <p className="max-w-5xl mx-auto mb-16 -mt-4 text-sm text-fg-secondary">{caption}</p>
+                            )}
+                          </>
+                        );
+                      }
                     }
-                  }
-                  return <p>{children}</p>;
-                },
-                blockquote: ({ children }) => (
-                  <blockquote>
-                    <QuoteAvatar />
-                    {children}
-                  </blockquote>
-                ),
-              }}
-            >
-              {content}
-            </Markdown>
-          </div>
-          {/* AGENCY CREDIT */}
-          {client.agency && (
-            <div className=" text-fg-secondary text-sm max-w-3xl mx-auto my-4  md:my-8">
-              This project was completed as part of my role at
-              <span className="inline-flex items-center gap-2 whitespace-nowrap ml-3 translate-y-1">
-                <CrosshairFrame>
-                  <Image
-                    src={strapiImageUrl({ url: client.agency.logo.url })}
-                    alt={`${client.agency.name} logo`}
-                    width={24}
-                    height={24}
-                    unoptimized
-                  />
-                </CrosshairFrame>
-
-                <Link
-                  href={client.agency.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline cursor-pointer font-medium underline-offset-4 decoration-neutral-200"
-                >
-                  {client.agency.name}
-                </Link>
-              </span>
+                    return <p>{children}</p>;
+                  },
+                  blockquote: ({ children }) => (
+                    <blockquote>
+                      <QuoteAvatar />
+                      {children}
+                    </blockquote>
+                  ),
+                }}
+              >
+                {content}
+              </Markdown>
             </div>
-          )}
+            {/* AGENCY CREDIT */}
+            {client.agency && (
+              <div className=" text-fg-secondary text-sm max-w-3xl mx-auto my-4  md:my-8">
+                This project was completed as part of my role at
+                <span className="inline-flex items-center gap-2 whitespace-nowrap ml-3 translate-y-1">
+                  <CrosshairFrame>
+                    <Image
+                      src={strapiImageUrl({ url: client.agency.logo.url })}
+                      alt={`${client.agency.name} logo`}
+                      width={24}
+                      height={24}
+                      unoptimized
+                    />
+                  </CrosshairFrame>
+
+                  <Link
+                    href={client.agency.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer font-medium underline-offset-4 decoration-neutral-200"
+                  >
+                    {client.agency.name}
+                  </Link>
+                </span>
+              </div>
+            )}
+          </div>
         </section>
       </main>
     </div>

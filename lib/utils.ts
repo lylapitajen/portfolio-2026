@@ -15,7 +15,7 @@ export function formatDate(dateString: string): string {
 
 export function strapiImageUrl({ url }: { url: string }) {
   if (url.startsWith("/")) {
-    return `${process.env.STRAPI_API_URL_LOCAL}${url}`;
+    return `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${url}`;
   }
   return url;
 }

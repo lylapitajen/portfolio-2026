@@ -63,7 +63,7 @@ export default function TableOfContents({ content, className }: Props) {
             href={`#${heading.id}`}
             className={cn(
               "font-sans block border-b px-tile py-4 text-fg-primary hover:bg-bg-element-hover",
-              heading.level === 3 && "pl-12 text-fg-secondary",
+              heading.level === 3 && "pl-10 text-fg-secondary",
               activeId === heading.id && "bg-accent/10 text-accent font-semibold border-l-accent border-l-2"
             )}
           >
