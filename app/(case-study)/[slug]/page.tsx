@@ -37,7 +37,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <section className=" flex flex-col">
           <div className="grid md:grid-cols-2">
             <div className="flex gap-3 items-center p-tile border-r">
-              {/* <CrosshairFrame>
+              <CrosshairFrame>
                 <Image
                   src={strapiImageUrl({ url: client.squareLogo.url })}
                   alt={`${title} logo`}
@@ -45,7 +45,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                   width={64}
                   className="h-8! w-auto!"
                 />
-              </CrosshairFrame> */}
+              </CrosshairFrame>
 
               <h1 className="font-sans text-2xl sm:text-3xl md:text-4xl text-fg-primary">{title}</h1>
             </div>
@@ -105,7 +105,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             </div>
             {/* AGENCY CREDIT */}
             {client.agency && (
-              <div className=" text-fg-secondary text-sm max-w-3xl mx-auto my-4  md:my-8">
+              <div className=" text-fg-secondary text-sm w-full max-w-3xl mx-auto my-4  md:my-8">
                 This project was completed as part of my role at
                 <span className="inline-flex items-center gap-2 whitespace-nowrap ml-3 translate-y-1">
                   <CrosshairFrame>
