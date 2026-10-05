@@ -22,13 +22,14 @@ export default async function Home() {
     <div className="bg-pattern-dots">
       <main className="screen-max-width-wrapper flex flex-col min-h-screen w-full border-x bg-bg-primary">
         <section className="md:h-[70vh] p-tile flex flex-col gap-2 justify-center">
-          <p className="all-caps text-fg-tertiary">Hi, I'm Lyla</p>
-          <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl max-w-4xl text-fg-primary">
-            I build design systems so product teams spend less time on decisions and more time shipping.
+          <p className="all-caps text-fg-tertiary">Hi, I'm Lyla!</p>
+          <h1 className="font-sans text-2xl sm:text-3xl md:text-4xl max-w-4xl text-fg-primary">
+            A technical Product Designer with 3+ years of experience across B2B SaaS and business applications. A
+            systems thinker with hands-on experience in frontend development and design systems.
           </h1>
           <div className="flex gap-2 items-center pt-4 text-fg-tertiary">
-            <div className="w-2 h-2 rounded-full bg-green-600"></div>
-            Available for new projects
+            <div className="w-2 h-2 rounded-full bg-green-700"></div>
+            Open to perm or contract roles
           </div>
         </section>
         <PatternDivider />
@@ -46,7 +47,7 @@ export default async function Home() {
                   {(["default", "outline", "ghost"] as const).map((variant) => (
                     <a
                       key={variant}
-                      href="https://drive.google.com/file/d/1HCb_xFPAMgYvSjZhWrfhhiOCv0fd6A6-/view"
+                      href="https://drive.google.com/file/d/1mU0TXvuOMaFzPD2WDPQEi_a8MiDXUu2f/view?usp=drive_link"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
